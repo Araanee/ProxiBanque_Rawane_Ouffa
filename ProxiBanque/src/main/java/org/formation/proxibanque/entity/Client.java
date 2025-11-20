@@ -1,8 +1,6 @@
 package org.formation.proxibanque.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,5 +20,12 @@ public class Client {
     private String postal_code;
     private String city;
     private String phoneNumber;
+    // persist the accounts directly when creating a client
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "current_account_id")
+    private Account currentAccount;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "savings_account_id")
+    private Account savingsAccount;
 
 }

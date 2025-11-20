@@ -1,12 +1,12 @@
 package org.formation.proxibanque.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,6 +21,7 @@ public class Account {
     private Long numberAccount;
     private AccountType accountType;
     private Long balance;
-    private Date creationDate;
+    private LocalDate creationDate;
+    private Long clientId;
 }
 

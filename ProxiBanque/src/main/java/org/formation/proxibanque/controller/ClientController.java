@@ -6,10 +6,17 @@ import org.formation.proxibanque.service.ClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class ClientController {
     private final ClientService service;
+
+    @GetMapping("clients")
+    List<Client> getClients() {
+        return service.getClients();
+    }
 
     @PostMapping("clients")
     Client createClient(@RequestBody Client client) {
